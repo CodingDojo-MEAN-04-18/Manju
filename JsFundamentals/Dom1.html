@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><Page Title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <ol id="addArray">
+
+    </ol>
+    <script>
+        function AddTOArray(array){
+            for(var i=0;i<array.length;i++){
+                let newItem = document.createElement("li");
+                newItem.innerHTML=array[i];
+                document.getElementById("addArray").appendChild(newItem);
+            }
+            
+        }
+
+        AddTOArray(["Suresh","manju","kaushik"])
+    </script>
+</body>
+
+</html>

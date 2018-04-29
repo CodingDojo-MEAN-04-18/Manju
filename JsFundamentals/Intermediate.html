@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+        function StarString(n) {
+            star="";
+            for(var i=0;i<n;i++){
+                star=star+"*";
+            }
+            return star;
+        }
+        function CharString(c,n){
+            var chars ="";
+            for(var i=0;i<n;i++){
+                chars=chars+c;
+            }
+            return chars;
+        }
+        function ArrayWalk(array){
+            for(var i=0;i<array.length;i++){
+                if(typeof(array[i])==='number'){
+                    console.log(StarString(array[i]));
+                }
+                else{
+                    console.log(CharString(array[i],i+1))
+                }
+                
+            }
+        }
+        console.log(`Start string : ${StarString(8)}`)
+        console.log("Print start array")
+        ArrayWalk([3,5,9]);
+        console.log("Print start array")
+        ArrayWalk([3,'k',9,'m',12,50,1000]);
+        </script>
+    </body>
+</html>
