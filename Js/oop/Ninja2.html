@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        function Ninja(name,health){
+            var speed=3;
+            var strenth=3;
+            this.name=name;
+            if(!health){
+                this.health=100;
+            }else{
+                this.health=health;
+            }
+            this.getSpeed=function(){
+                return speed;
+            }
+            this.getStrenth=function(){
+                return strenth;
+            }
+        }
+        Ninja.prototype.sayName = function(){
+            console.log("My Ninja name is "+this.name);
+        }
+        Ninja.prototype.showStats = function(){
+            console.log(`name ${this.name}, health ${this.health}, speed ${this.getSpeed()}, strenth ${this.getStrenth()}`);
+        }
+        Ninja.prototype.drinkShake = function(){
+            this.health+=10;
+        }
+        Ninja.prototype.punch = function(otherNinja){
+            this.health+=5;
+            otherNinja.health-=5;
+        }
+        var blueNinja = new Ninja("Goemon");
+        var redNinja = new Ninja("Bill Gates");
+        console.log("before punch");
+        blueNinja.showStats();
+        redNinja.showStats();
+        redNinja.punch(blueNinja);
+        console.log("After punch");
+        blueNinja.showStats();
+        redNinja.showStats();
+    </script>
+</head>
+<body>
+   <p id="name"></p>
+</body>
+</html>

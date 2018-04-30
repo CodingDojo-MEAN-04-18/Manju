@@ -1,0 +1,31 @@
+
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Hunting Github</title>
+        </head>
+        <body>
+        
+            <button id="gitButton">Click to get Git info</button>
+        
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+            <script>
+            // Link our variable "button" to a DOM element
+            const button = document.getElementById("gitButton")
+            // add a DOM eventListener to that variable.
+            button.addEventListener("click", callAPI);
+            // define the What-To-Do-On-Click function (callAPI)
+            function callAPI() {
+                $.get("https://api.github.com/users/ckalk", displayName)
+                // Notice that displayName is a function that takes in the data that comes back from the API
+                function displayName(data) {
+                    console.log(data);
+                    const htmlStr = "<p>" + data.login + "</p>";
+                    $( htmlStr ).insertAfter( button );
+                }
+            }
+            </script> 
+        </body>
+        </html>
