@@ -1,0 +1,16 @@
+1. use MyFirstdb
+
+2. b.createCollection("students")
+ 
+3, db.students.insert({name:"Manju",home_state:"WA",lucky_number:7,birthday:{month:10,day:11,year:1978}})
+4, db.students.insert({name:"Surresh",home_state:"WA",lucky_number:7,birthday:{month:06,day:25,year:1975}})
+   db.students.insert({name:"Kaushik",home_state:"WA",lucky_number:7,birthday:{month:10,day:17,year:2005}})
+   db.students.insert({name:"Siddu",home_state:"HYD",lucky_number:9,birthday:{month:10,day:14,year:2006}})
+   db.students.insert({name:"Rohit",home_state:"BOM",lucky_number:9,birthday:{month:05,day:10,year:1995}})
+
+5. db.students.find().pretty()
+
+6. db.students.find({home_state:"WA").pretty()
+
+
+
