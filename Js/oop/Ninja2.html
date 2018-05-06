@@ -22,7 +22,14 @@
             this.getStrenth=function(){
                 return strenth;
             }
+            this.setSpeed=function(n){
+                this.speed=n;
+            }
+            this.setStrenth=function(n){
+                this.strenth=n;
+            }
         }
+
         Ninja.prototype.sayName = function(){
             console.log("My Ninja name is "+this.name);
         }
@@ -36,6 +43,10 @@
             this.health+=5;
             otherNinja.health-=5;
         }
+        Ninja.prototype.kick=function(otherNinja){
+            otherNinja.health-=15;
+        }
+
         var blueNinja = new Ninja("Goemon");
         var redNinja = new Ninja("Bill Gates");
         console.log("before punch");
