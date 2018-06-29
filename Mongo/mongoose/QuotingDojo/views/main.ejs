@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Make Quatations</title>
+</head>
+<body>
+    <div class="errors">
+        <%if (typeof errors !== 'undefined') { %>
+            <% for (const error of errors) { %>
+                <p class="text-danger"><%= error %></p>
+            <% } %>
+        <% } %>
+    </div>
+    <div>
+       
+        <form action="/quotes" method="post">
+            <p>Your Name: <input type="text" name="name" id="name"></p>
+            <p>Your Quote: <input type="text" name="message" id="message"></p>
+            <button type="submit">Add My Quote!</button>
+        </form>
+        <form action="/quotes" method="get">
+            <button type="submit">Skip to Quotes!</button>
+        </form>
+    </div>
+</body>
+</html>

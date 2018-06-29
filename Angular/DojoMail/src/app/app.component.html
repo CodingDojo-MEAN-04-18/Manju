@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1 style="text-align:center">
+    {{ title }}
+  </h1>
+  <fieldset>
+    <table>
+      <tr>
+        <th>Email</th>
+        <th>Importance</th>
+        <th>Subject</th>
+        <th>Content</th>
+      </tr>
+      <tr *ngFor='let e of emails'>
+      <th>{{e.email}}</th>
+      <th>{{e.importance}}</th>
+      <th>{{e.subject}}</th>
+      <th>{{e.content}}</th>
+      <!-- <p *ngFor='let e of emails'>{{ e.email }}</p> -->
+    </tr>
+    </table>
+  
+  </fieldset>
+</div>

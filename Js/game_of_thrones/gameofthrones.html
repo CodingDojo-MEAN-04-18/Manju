@@ -1,0 +1,111 @@
+]<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Game of Thrones</title>
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <div class="row">
+        <div id="362" class="col-md-3 p5">
+            <img class="img-fluid" src="images/stark.jpg" />
+        </div>
+        <div id="378" class="col-md-3 p5">
+            <img class="img-fluid" src="images/targaryen.jpg" />
+        </div>
+        <div id="229" class="col-md-3 p5">
+            <img class="img-fluid" src="images/lannister.jpg" />
+        </div>
+        <div id="15" class="col-md-3 p5">
+            <img class="img-fluid" src="images/baratheon.png" />
+        </div>
+    </div> <!-- end of row of images -->
+
+    <div class="card w-75 mx-auto mt-5">
+        <div class="card-body">
+            <h5 class="card-title">House Details</h5>
+            <ul class="list-group list-group-flush">
+                <li id="name" class="list-group-item">Name: </li>
+                <li id="words" class="list-group-item">Words: </li>
+                <li id="titles" class="list-group-item">Titles: </li>
+            </ul>
+       </div>
+    </div> <!-- end of info card -->
+
+</div> <!-- end container div -->
+
+<!-- Optional JavaScript for bootstrap would go here-->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+<script>
+        ( function(window_ref) {
+            // attach function $House to the window object (which is passed to the immediate function at end of function)
+            window_ref.$house = function $House(id) {
+    
+                console.log('this within $House: ', this);
+                console.log('this is the id', id);
+                this.element = document.getElementById(id);
+                console.log('this is the element returned from getelement', this.element);
+    
+                this.click = function(clickCallback) {
+                    this.element.addEventListener("click", clickCallback);
+                };
+    
+                return this;
+            };
+    
+        }(window));
+
+        // id is not being passed, just the event
+        function clickCallback(id) {
+            // call the GoT API
+            console.log('this at line 76', this.id);
+            console.log("calling API for house id=", id);
+            console.log(jQuery);
+            $.get('https://anapioficeandfire.com/api/houses/'+this.id, displayInfo);
+        }
+    
+        function displayInfo(data){
+            console.log('data object returned from API: \n', data)
+
+            if ( data.name && document.getElementById('name') ){
+                // console.log('$(#name)' , $('#name')[0] );
+                document.getElementById('name').innerHTML = "Name: " + data.name;
+            }
+
+            if ( data.words && document.getElementById('words') ){
+                document.getElementById('words').innerHTML = "Words: " + data.words;
+            }
+
+            if ( data.titles && document.getElementById('titles') ){
+                document.getElementById('titles').innerHTML = "Titles: " + data.titles;
+            }
+        }
+
+        $house("362").click(clickCallback);
+        $house("378").click(clickCallback);
+        $house("229").click(clickCallback);
+        $house("15").click(clickCallback);
+    
+    </script> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

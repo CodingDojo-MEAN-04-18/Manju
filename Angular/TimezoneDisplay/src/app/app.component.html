@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1 style="text-align:center">
+    {{ title }}
+    <p>
+      <button (click)="onButtonClick('PST')">PST</button>
+      <button (click)="onButtonClick('EST')">EST</button>
+      <button (click)="onButtonClick('MST')">MST</button>
+      <button (click)="clear()">Clear</button>
+    </p>
+    <p *ngIf='dateTime'>{{dateTime | date: 'medium' :timezone}} </p>
+  </h1>
+</div>

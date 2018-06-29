@@ -1,0 +1,10 @@
+#first {
+  width: 100px;
+  height: 100px;
+  background: brown;
+}
+#first #second{
+  width: 50%;
+  height: 50%;
+  background: green;
+}
